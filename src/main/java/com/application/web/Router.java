@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * Created by james on 25/04/2017.
  */
-public class IndexController {
+public final class Router {
 
     public static Route serveIndexPage = (Request request, Response response) -> {
         Map<String, Object> model = new HashMap<>();
@@ -18,4 +18,12 @@ public class IndexController {
         return TemplateRender.render(model, Path.Template.INDEX);
     };
 
+    public static Route serveSubmitPage = (Request request, Response response) -> {
+        Map<String, Object> model = new HashMap<>();
+        model.put("", "");
+        return TemplateRender.render(model, Path.Template.FORM_SUBMIT);
+    };
+
+    public static Route handleSubmitForm =
+            (Request request, Response response) -> "Hello " + request.queryParams("name");
 }
