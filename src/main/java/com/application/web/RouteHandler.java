@@ -10,8 +10,8 @@ import static spark.Spark.post;
  * Created by james on 03/05/2017.
  */
 public class RouteHandler {
-    public static void initRoutes() {
-        Logger log = LoggerFactory.getLogger("Root logger");
+    public static void initRoutes(Logger log) {
+        log = LoggerFactory.getLogger("Router logger");
         get("/hello/:name", (req, res) -> "Hello " + req.params(":name"));
         log.info("Serving the hello page");
         get("/health", ((request, response) -> "Alive"));

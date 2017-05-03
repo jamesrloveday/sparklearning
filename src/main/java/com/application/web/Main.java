@@ -10,6 +10,6 @@ public class Main {
     public static void main(String... args) {
         Logger log = LoggerFactory.getLogger("Root logger");
         port(6000);
-        RouteHandler.initRoutes();
+        RouteHandler.initRoutes(log);
     }
 }
